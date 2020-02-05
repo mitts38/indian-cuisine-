@@ -2,9 +2,11 @@
     "users": [
         {
             "id": 1,
-            "name": "Mitali",
-            "password": "nik",
-            "email": "shanthla@yahoo.com"
+            "firstname": "Mitali",
+            "lastName": "Vasisht",
+            "password": "saibaba42",
+            "email": "vamdev37@gmail.com",
+           
             
         }
     ],
@@ -37,3 +39,4 @@
             
         }
     ]
+}

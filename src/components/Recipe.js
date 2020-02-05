@@ -1,10 +1,15 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
-// import NavBar from "./nav/Navbar"
-// import ApplicationViews from "./ApplicationViews"
+import NavBar from "./navbar/NavBar"
+import ApplicationViews from "./ApplicationViews"
 import "./Recipe.css"
 import Login from "./login/Login"
 import Register from "./login/Register"
+import "./navbar/NavBar.css"
+
+
+
+
 
 export default () => (
     <>
@@ -12,8 +17,8 @@ export default () => (
             if (localStorage.getItem("currentUser")) {
                 return (
                     <>
-                        {/* <Route render={props => <NavBar {...props} />} />
-                        <Route render={props => <ApplicationViews {...props} />} /> */}
+                        { <Route render={props => <NavBar {...props} />} /> }
+                         {/* <Route render={props => <ApplicationViews {...props} />} />  */}
                     </>
                 )
             } else {

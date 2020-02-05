@@ -5,8 +5,9 @@ import "./Login.css"
 const Login = props => {
     const email = useRef()
     const password = useRef()
-    const customerName = useRef()
-    const address = useRef()
+    const name = useRef()
+    
+    
 
     const existingUserCheck = () => {
         return fetch(`http://localhost:8088/users?email=${email.current.value}`)
@@ -39,8 +40,10 @@ const Login = props => {
                         body: JSON.stringify({
                             email: email.current.value,
                             password: password.current.value,
-                            name: customerName.current.value,
-                            address: address.current.value
+                            name: name.current.value,
+                            
+                        
+
                         })
                     })
                         .then(_ => _.json())
@@ -66,6 +69,7 @@ const Login = props => {
                             placeholder="Email address"
                             required autoFocus />
                     </fieldset>
+
                     <fieldset>
                         <label htmlFor="inputPassword"> Password </label>
                         <input ref={password} type="password"
