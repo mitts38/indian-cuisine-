@@ -1,42 +1,35 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "firstname": "Mitali",
-            "lastName": "Vasisht",
-            "password": "saibaba42",
-            "email": "vamdev37@gmail.com",
-           
-            
-        }
-    ],
-    "recipeList": [
-        {
-            "id": 1,
-            "recipe": "Dosa",
-            "userId": "1",
-            "url": "https://www.vahrehvah.com/chilli-paneer-indian-recipe",
-            "description": "This is belong to south india",
-            "region": "south"
-            
-        }
-    ],
-    "favoriteRecipe": [
-        {
-            "id": 1,
-            "userId": "1",
-            "recipeId": "1"
-            
-            
-        }
-    ],
-    "notes": [
-        {
-            "id": 1,
-            "text": "You can make with Oats",
-            "userId": "1"
-            
-            
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Mitali",
+      "lastName": "Vasisht",
+      "password": "saibaba42",
+      "email": "vamdev37@gmail.com"
+    }
+  ],
+  "recipeList": [
+    {
+      "id": 1,
+      "recipe": "Dosa",
+      "userId": "1",
+      "url": "https://www.vahrehvah.com/chilli-paneer-indian-recipe",
+      "description": "This is belong to south india",
+      "region": "south"
+    }
+  ],
+  "favoriteRecipe": [
+    {
+      "id": 1,
+      "userId": "1",
+      "recipeId": "1"
+    }
+  ],
+  "notes": [
+    {
+      "text": "tntntenten",
+      "userId": null,
+      "id": 1
+    }
+  ]
 }

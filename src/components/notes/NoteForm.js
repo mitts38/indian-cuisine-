@@ -1,45 +1,43 @@
 import React, { useContext, useRef } from "react"
 import { NoteContext } from "./NoteProvider"
-import "./Note.css"
+import { UserContext } from "../users/UserProvider"
+import "./Note"
 
 export default props => {
+    const { user } = useContext(UserContext)
     const { addNote } = useContext(NoteContext)
-    const noteText = useRef("")
+    const noteNote = useRef("")
 
+    const foundNoteUser = user.find(singleUser => singleUser.id === parseInt(localStorage.getItem("currentUser")))
+    console.log(foundNoteUser)
+    const constructNewNote = () => {
+        addNote({
+            text: noteNote.current.value,
+            userId: parseInt(localStorage.getItem("UserID")),
 
-
-
-    const constructNewArticle = () => {
-            addArticle({
-            
-                text: noteText.current.value,
-                           
-
-            })
-        }
-    
+        })
+    }
 
     return (
         <form className="noteForm">
-            <h2 className="noteForm__id">New Note</h2>
-
+            <h2 className="eventForm__title">New Note</h2>
             <div className="form-group">
-                <label htmlFor="noteText">Note</label>
+                <label htmlFor="noteNote">note</label>
                 <input
                     type="text"
-                    id="noteText"
-                    ref={noteText}
+                    id="noteNote"
+                    ref={noteNote}
                     required
                     autoFocus
                     className="form-control"
-                    placeholder="Text"
+                    placeholder="note"
                 />
             </div>
             <button type="submit"
                 onClick={
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
-                        constructNewArticle()
+                        constructNewNote()
                     }
                 }
                 className="btn btn-primary">

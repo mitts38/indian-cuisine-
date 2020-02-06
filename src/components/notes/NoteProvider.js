@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react"
     The context is imported and used by individual components
     that need data
 */
-export const NoteContext = React.noteContext()
+export const NoteContext = React.createContext()
 
 /*
  This component establishes what data can be used.
@@ -18,18 +18,18 @@ export const NoteProvider = (props) => {
             .then(setNotes)
     }
 
-    const addNotes = notes => {
+    const addNote = note => {
         return fetch("http://localhost:8088/notes", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(notes)
+            body: JSON.stringify(note)
         })
             .then(getNotes)
     }
 
-     const deleteNotes = note => {
+     const deleteNote = note => {
         return fetch(`http://localhost:8088/notes/${note.id}`, {
             method: "DELETE"
         })

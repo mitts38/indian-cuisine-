@@ -12,7 +12,7 @@ export default (props) => {
                 <Link className="navBar__link" to="/recipeList">RECIPE LIST</Link>
             </li> 
             <li className="navBar__item active">
-                <Link className="navBar__link" to="/favoriteRecipe">FAVORITE FOOD</Link>
+                <Link className="navBar__link" to="/favoriteRecipe">FAVORITE RECIPES</Link>
             </li> 
             <li className="navBar__item active">
                 <Link className="navBar__link" to="/region">REGION</Link>
@@ -31,7 +31,7 @@ export default (props) => {
                                 localStorage.removeItem("currentUser")
                                 props.history.push("/")
                             }}
-                        >Logout</Link>
+                        >LOGOUT</Link>
                     </li>
                     : ""
             }

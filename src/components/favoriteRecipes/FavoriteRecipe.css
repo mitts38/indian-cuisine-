@@ -1,10 +1,10 @@
-.noteList {
+.FavoriteRecipeList {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
 }
-.note {
+.favoriteRecipe {
     flex-basis: 33%;
     margin: 1em;
     padding: 1em;
