@@ -10,12 +10,12 @@ export const RecipeListContext = React.createContext()
  This component establishes what data can be used.
  */
 export const RecipeListProvider = (props) => {
-    const [recipesList, setRecipeList] = useState([])
+    const [theRecipeList, setRecipeList] = useState([])
 
-    const getRecipesList = () => {
+    const getRecipeList = () => {
         return fetch("http://localhost:8088/recipeList")
             .then(res => res.json())
-            .then(setRecipeLst)
+            .then(setRecipeList)
     }
 
     const addRecipeList = recipeList => {
@@ -26,14 +26,21 @@ export const RecipeListProvider = (props) => {
             },
             body: JSON.stringify(recipeList)
         })
-            .then(getRecipesList)
+            .then(getRecipeList)
     }
 
      const deleteRecipeList = recipeList => {
         return fetch(`http://localhost:8088/recipeList/${recipeList.id}`, {
             method: "DELETE"
         })
-        .then(getRecipesList)
+        .then(getRecipeList)
+    }
+
+     const editRecipeList = recipeList => {
+        return fetch(`http://localhost:8088/recipeList/${recipeList.id}`, {
+            method: "put"
+        })
+        .then(getRecipeList)
     }
 
     /*
@@ -41,16 +48,16 @@ export const RecipeListProvider = (props) => {
         an empty array is the second argument to avoid infinite loop.
     */
     useEffect(() => {
-        getRecipesList()
+        getRecipeList()
     }, [])
 
     useEffect(() => {
         console.log("****  article APPLICATION STATE CHANGED  ****")
-    }, [recipesList])
+    }, [theRecipeList])
 
     return (
         <RecipeListContext.Provider value={{
-            recipesList, addRecipeList, deleteRecipeList
+            theRecipeList, addRecipeList, deleteRecipeList, editRecipeList
         }}>
             {props.children}
         </RecipeListContext.Provider>

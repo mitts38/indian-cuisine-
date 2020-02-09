@@ -3,19 +3,19 @@ import { NoteContext } from "./NoteProvider"
 import "./Note.css"
 
 export default ({ note, match, history }) => {
-    const { note, deleteNote } = useContext(NoteContext)
+    const {  deleteNote } = useContext(NoteContext)
 
     return (
     <section className="note">
     
-        <div className="note__text">{note.noteNote}</div>
+        <div className="note__text">{note.text}</div>
         
     
          <button className="btn--delete"
                 onClick={() => {
                 deleteNote(note)
                     .then(() => {
-                        history.push("/note")
+                        history.push("/notes")
                      })
                     }} >Delete
             </button>

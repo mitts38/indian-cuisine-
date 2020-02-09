@@ -4,20 +4,20 @@ import "./NavBar.css"
 
 export default (props) => {
     return (
-        <ul className="navBar">
-            <li className="navBar__item active">
+        <ul className=" navbar">
+            <li className="navbar__item active">
                 <Link className="navBar__link" to="/indian cusin">INDIAN-CUSINE</Link>
             </li> 
-            <li className="navBar__item active">
+            <li className="navbar__item active">
                 <Link className="navBar__link" to="/recipeList">RECIPE LIST</Link>
             </li> 
-            <li className="navBar__item active">
+            <li className="navbar__item active">
                 <Link className="navBar__link" to="/favoriteRecipe">FAVORITE RECIPES</Link>
             </li> 
-            <li className="navBar__item active">
+            <li className="navbar__item active">
                 <Link className="navBar__link" to="/region">REGION</Link>
             </li> 
-            <li className="navBar__item active">
+            <li className="navbar__item active">
                 <Link className="navBar__link" to="/notes">NOTES</Link>
             </li> 
 

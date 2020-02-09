@@ -1,17 +1,21 @@
 import React, { useContext } from "react"
 import { FavoriteRecipeContext } from "./FavoriteRecipeProvider"
-import FavoriteRecipes from "./FavoriteRecipe"
+import FavoriteRecipe from "./FavoriteRecipe"
 import "./FavoriteRecipe.css"
 
 export default (props) => {
-    const { favoriteRecipe } = useContext(FavoriteRecipeContext)
+    const { favoriteRecipes } = useContext(FavoriteRecipeContext)
 
     return (
-        <div className="favoriteRecipes">
-            <h1>favoriteRecipes</h1>
-            <article className="favoriteRecipeList">
-                {favoriteRecipe.map(FavoriteRecipe => <FavoriteRecipes key={FavoriteRecipe.id} favoriteRecipe={favoriteRecipe} {...props} />)}
+        <div className="favoriteRecipes" className="center">
+            <h1>FavoriteRecipe</h1>
+            <button onClick={() => props.history.push("/favoriteRecipes/create")}>
+                Add FavoriteRecipe
+            </button>
+            <article className="FavoriteRecipeList">
+                {favoriteRecipes.map(favoriteRecipe => <FavoriteRecipe key={favoriteRecipe.id} favoriteRecipe={favoriteRecipe} {...props} />)}
             </article>
         </div>
     )
 }
+ 

@@ -13,7 +13,7 @@ export default props => {
     const constructNewNote = () => {
         addNote({
             text: noteNote.current.value,
-            userId: parseInt(localStorage.getItem("UserID")),
+            userId: parseInt(localStorage.getItem("currentUser")),
 
         })
     }
@@ -38,8 +38,10 @@ export default props => {
                     evt => {
                         evt.preventDefault() // Prevent browser from submitting the form
                         constructNewNote()
+                        props.history.push("/notes")
                     }
                 }
+        
                 className="btn btn-primary">
                 Save Note
             </button>

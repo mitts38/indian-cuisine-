@@ -1,70 +1,48 @@
 import React, { useContext, useRef } from "react"
 import { FavoriteRecipeContext } from "./FavoriteRecipeProvider"
+import { UserContext } from "../users/UserProvider"
 import "./FavoriteRecipe"
 
 export default props => {
+    const { user } = useContext(UserContext)
     const { addFavoriteRecipe } = useContext(FavoriteRecipeContext)
-    const FavoriteRecipeId = useRef("")
-    const FavoriteRecipeUserId = useRef("")
-    const FavoriteRecipeRecipeId = useRef("")
+    const FavoriteRecipe = useRef("")
 
-
-
+    const foundFavoriteRecipeUser = user.find(singleUser => singleUser.id === parseInt(localStorage.getItem("currentUser")))
+    console.log(foundFavoriteRecipeUser)
     const constructNewFavoriteRecipe = () => {
         addFavoriteRecipe({
-            id: FavoriteRecipeId.current.value,
-            userid: FavoriteRecipeUserId.current.value,
-            recipeid: FavoriteRecipeRecipeId.current.value,
-
-
+        
+            recipeId: FavoriteRecipe.current.value,
+            userId: parseInt(localStorage.getItem("currentUser")),
 
         })
     }
 
-
     return (
-        <form className="FavoriteRecipeForm">
-            <h2 className="FavoriteRecipeForm__title">Favorite Recipe</h2>
+        <form className="favoriteRecipeForm">
+            <h2 className="eventForm__title">New FavoriteRecipe</h2>
             <div className="form-group">
-                <label htmlFor="favoriteRecipeId"> id </label>
+                <label htmlFor="favoriteRecipe">favoriteRecipe</label>
                 <input
-                    type="text"
-                    id="favoriteRecipeId"
-                    ref={FavoriteRecipeId}
+                    type="id"
+                    id="favoriteRecipe"
+                    ref={FavoriteRecipe}
                     required
                     autoFocus
                     className="form-control"
-                    placeholder=""
-                />
-                <label htmlFor="favoriteRecipeUserId"> User Id </label>
-                <input
-                    type="text"
-                    id="favoriteRecipeId"
-                    ref={FavoriteRecipeUserId}
-                    required
-                    autoFocus
-                    className="form-control"
-                    placeholder=""
-                />
-                <label htmlFor="favoriteRecipeRecipeId"> Recipe Id </label>
-                <input
-                    type="text"
-                    id="favoriteRecipeRecipeId"
-                    ref={FavoriteRecipeRecipeId}
-                    required
-                    autoFocus
-                    className="form-control"
-                    placeholder=""
+                    placeholder="favoriteRecipe"
                 />
             </div>
-
             <button type="submit"
                 onClick={
-                    fav => {
-                        fav.preventDefault() // Prevent browser from submitting the form
+                    evt => {
+                        evt.preventDefault() // Prevent browser from submitting the form
                         constructNewFavoriteRecipe()
+                        props.history.push("/favoriteRecipes")
                     }
                 }
+        
                 className="btn btn-primary">
                 Save FavoriteRecipe
             </button>

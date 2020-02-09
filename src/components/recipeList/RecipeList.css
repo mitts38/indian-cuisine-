@@ -1,11 +1,11 @@
-.recipeList {
+.recipesList {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: space-between;
 }
-.recpeList {
-    flex-basis: 33%;
+.recpesList {
+    flex-basis: 16%;
     margin: 1em;
     padding: 1em;
     border: 1px solid goldenrod;

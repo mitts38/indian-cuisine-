@@ -2,22 +2,40 @@ import React, { useContext } from "react"
 import { RecipeListContext } from "./RecipeListProvider"
 import "./RecipeList.css"
 
+
 export default ({ recipeList, match, history }) => {
-    const { recipesList, deleteRecipeList } = useContext(RecipeListContext)
+    const { addRecipeList, deleteRecipeList, editRecipeList } = useContext(RecipeListContext)
+
+
 
     return (
-    <section className="recipeList">
-    
-        <div className="recipeList__text">{recipeList.RecipesList}</div>
-        
-    
-         <button className="btn--delete"
+        <section className="recipeList">
+            <a href=""> recipe</a>
+            <div className="recipeList__description">{recipeList.description}</div>
+            <div className="recipeList__region">{recipeList.region}</div>
+
+
+            <button className="btn--delete"
                 onClick={() => {
-                deleteNote(recipeList)
-                    .then(() => {
-                        history.push("/recipeList")
-                     })
-                    }} >Delete
+                    addRecipeList(recipeList)
+
+                }} >Add
             </button>
-    </section>
-)}
+
+
+
+            <button className="btn--delete"
+                onClick={() => {
+                    deleteRecipeList(recipeList)
+
+                }} >Delete
+            </button>
+            <button className="btn--favorite"
+                onClick={() => {
+                    editRecipeList(recipeList)
+                    history.push("/recipeList")
+                }} >Edit
+            </button>
+        </section>
+    )
+}
